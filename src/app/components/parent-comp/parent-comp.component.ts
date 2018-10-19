@@ -47,6 +47,7 @@ export class ParentCompComponent implements OnInit {
   }
 
   onDeleted(hero: Hero) {
-    console.log('El child component quiere eliminar el item ' + hero.id);
+    console.log('Edit component wants to delete the item ' + hero.id);
+    this.heroes = this.heroes.filter(function(el) { return el.id != hero.id; }); 
   }
 }

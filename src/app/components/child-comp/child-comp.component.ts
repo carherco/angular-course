@@ -11,40 +11,12 @@ import { HeroService } from '../../services/hero.service';
 })
 export class ChildCompComponent implements OnInit {
 
-  private hero_id;
   @Input('variable_para_child')  hero: Hero;
   @Output() onChildDeleted = new EventEmitter<Hero>();
-  constructor(private route: ActivatedRoute,
-              private router: Router,
-              private service: HeroService
-              ) { }
+  
+  constructor() { }
 
-  ngOnInit() {
-
-    this.route.paramMap.subscribe(
-      (params: ParamMap) => {console.log('El id del héroe es: ',params.get('id'));}
-    );
-
-    // https://angular.io/api/router/ParamMap
-
-/*
-    this.route.paramMap.subscribe(
-      (params: ParamMap) => {this.hero_id = params.get('id');}
-    );
-*/
-/*
-    this.route.paramMap
-        .switchMap((params: ParamMap) => this.service.getHero(params.get('id')))
-        .subscribe((data)=>{this.hero = data;});
-*/
-
-    // Alternativa obtener id sin Observable
-/*
-    let id = this.route.snapshot.paramMap.get('id');
-    this.service.getHero(id).subscribe((data)=>{this.hero = data;});
-*/
-
-  }
+  ngOnInit() { }
 
   delete() {
     this.onChildDeleted.emit(this.hero);

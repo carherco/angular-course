@@ -24,15 +24,6 @@
     </table>
   </div>
 
-  <div *ngIf="selectedHero" class="col-md-3">
-    <h3>Detalle de {{selectedHero.name}}</h3>
-    <div><label>Id: </label>{{selectedHero.id}}</div>
-    <div>
-      <label>Nombre: </label>
-      <input [(ngModel)]="selectedHero.name" placeholder="name"/>
-    </div>
-  </div>
-
   <app-child-comp *ngIf="selectedHero" class="col-md-3" [variable_para_child]="selectedHero" (onChildDeleted)="onDeleted($event)"></app-child-comp>
 
 </div>

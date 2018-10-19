@@ -118,7 +118,7 @@ It is convenient to take a look at the classes that provides *ReactiveFormsModul
 
     createForm() {
       this.heroForm = this.fb.group({
-        name: ['', Validators.required ],
+        name: ['', { validators: Validators.required } ],
         street: '',
         city: '',
         state: '',
@@ -150,8 +150,8 @@ We can make a little change to better organise the controls and to demonstrate t
 
 ```typescript
   createForm() {
-    this.heroForm = this.fb.group({ 
-      name: ['', Validators.required ],
+    this.heroForm = this.fb.group({
+      name: ['', { validators: Validators.required } ],
       address: this.fb.group({
         street: '',
         city: '',
@@ -198,7 +198,7 @@ A group can be builded directly from an object model:
 We can instantiate FormControl objects. And then use it to build a FormGroup.
 
 ```typescript
-  this.alterEgoControl = new FormControl('Default Value', Validators.required);
+  this.alterEgoControl = new FormControl('Default Value', { validators: Validators.required });
 
   this.heroForm = this.fb.group({
       name: 'Default Name',
@@ -213,7 +213,7 @@ Or we can build de FormGroup and then get the individual FormControl instance wi
 
 ```typescript
   this.heroForm = this.fb.group({ 
-      name: ['', Validators.required ],
+      name: ['', { validators: Validators.required } ],
       address: this.fb.group({
         street: '',
         city: '',
@@ -221,7 +221,7 @@ Or we can build de FormGroup and then get the individual FormControl instance wi
         zip: ''
       }),
       power: '',
-      alterEgo: ['Default Value', Validators.required ],
+      alterEgo: ['Default Value', { validators: Validators.required } ],
     });
 
   this.alterEgoControl = this.heroForm.get('alterEgo');
@@ -282,7 +282,7 @@ Heroes can have more than one address. So we need to make some changes to the Fo
 
 ```typescript
 this.heroForm = this.fb.group({
-  name: ['', Validators.required ],
+  name: ['', { validators: Validators.required } ],
   addresses: this.fb.array([]),
   power: '',
   sidekick: ''
@@ -335,4 +335,28 @@ Reactive forms have some features that work with Observables. For example, the A
   }
 ```
 
+## The updateOn option
 
+Forms default behabiour is to update in every keypress. But we can change that behaviour with the **updateOn** option.
+
+Individually on a FormControl
+
+```typescript
+  this.alterEgoControl = new FormControl('Default Value', { validators: Validators.required, updateOn: 'blur' });
+```
+
+Or in a whole group
+
+```typescript
+  this.formControl = new FormGroup({
+    name: ['', { validators: Validators.required }],
+    addresses: this.fb.array([]),
+  }, { updateOn: 'blur' });
+```
+
+```typescript
+  this.formControl = new FormGroup({
+    name: ['', { validators: Validators.required }],
+    addresses: this.fb.array([]),
+  }, { updateOn: 'submit' });
+```

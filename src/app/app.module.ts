@@ -45,6 +45,10 @@ import { CalculadoraComponent } from './components/calculadora/calculadora.compo
 import { RotateDirective } from './directives/rotate.directive';
 import { RotateComponent } from './components/rotate/rotate.component';
 import { CronoComponent } from './components/crono/crono.component';
+import { HeroesContainerComponent } from './components/heroes-container/heroes-container.component';
+import { HeroesListPresenterComponent } from './components/heroes-list-presenter/heroes-list-presenter.component';
+import { HeroesAddPresenterComponent } from './components/heroes-add-presenter/heroes-add-presenter.component';
+import { HeroesEditPresenterComponent } from './components/heroes-edit-presenter/heroes-edit-presenter.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +75,11 @@ import { CronoComponent } from './components/crono/crono.component';
     NavComponent,
     RotateDirective,
     RotateComponent,
-    CronoComponent
+    CronoComponent,
+    HeroesContainerComponent,
+    HeroesListPresenterComponent,
+    HeroesAddPresenterComponent,
+    HeroesEditPresenterComponent
   ],
   imports: [
     BrowserModule,

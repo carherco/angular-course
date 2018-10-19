@@ -1,0 +1,13 @@
+<h2>Container-Presenter Pattern</h2>
+
+<app-heroes-add-presenter [hero]="newHero" (onAdd)="add($event)"></app-heroes-add-presenter>
+
+
+
+<div class="row">
+
+  <app-heroes-list-presenter [heroes]="heroes" [selectedHero]="selectedHero" (onSelect)="onSelect($event)" (onDelete)="onDelete($event)"></app-heroes-list-presenter>
+
+  <app-heroes-edit-presenter *ngIf="selectedHero" class="col-md-3" [hero]="selectedHero" (onDeleted)="onDelete($event)"></app-heroes-edit-presenter>
+
+</div>

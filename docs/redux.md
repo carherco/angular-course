@@ -38,3 +38,6 @@ Pure functions:
   - They are *pure functions*, the only ones that can change the state.
   - They receive the current status (STATE) and an action (ACTION).
   - Clone the state, make the appropriate changes and return the mutated state.
+
+## Store
+

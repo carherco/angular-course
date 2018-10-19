@@ -1,3 +1,4 @@
+import { HeroesContainerComponent } from './components/heroes-container/heroes-container.component';
 import { CrudBasicoComponent } from './components/crud-basico/crud-basico.component';
 import { CalculadoraComponent } from './components/calculadora/calculadora.component';
 import { NgModule } from '@angular/core';
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
       { path: 'lifecycle', component: LifecycleComponent },
       { path: 'search', component: HeroSearchComponent },
       { path: 'hero/:id',      component: ChildCompComponent },
+      { path: 'container-presenter', component: HeroesContainerComponent },
       {
         path: 'heroes',
         component: ParentCompComponent,

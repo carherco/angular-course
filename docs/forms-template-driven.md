@@ -253,4 +253,18 @@ export class HeroFormComponent implements OnInit {
 Se podría haber hecho con la propiedad .submitted de ngForm
 
 
+## updateOn
+
+```html
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" required [(ngModel)]="hero.name" name="name" #name="ngModel" [ngModelOptions]="{updateOn: 'blur'}">
+  </div>
+```
+
+```html
+<form [ngModelOptions]="{updateOn: 'submit'}">
+```
+
+
 [Índice](index.md)

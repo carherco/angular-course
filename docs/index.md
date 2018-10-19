@@ -21,8 +21,7 @@
 - [Introduction to PWA]
 - Reusable forms (Creación de formularios reutilizables (consejos y buenas prácticas)
 
-- https://medium.com/@bastijns.jeroen/angular-reusable-form-components-f9233193138c
-- http://www.bentedder.com/create-reusable-address-component-angular-4/
+
 
 
 
