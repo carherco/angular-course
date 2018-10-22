@@ -6,7 +6,7 @@
 
 <div class="row">
 
-  <app-redux-heroes-list-presenter [heroes]="heroes$" [selectedHero]="selectedHero" (onSelect)="onSelect($event)" (onDelete)="onDelete($event)"></app-redux-heroes-list-presenter>
+  <app-redux-heroes-list-presenter [heroes]="heroes" [selectedHero]="selectedHero" (onSelect)="onSelect($event)" (onDelete)="onDelete($event)"></app-redux-heroes-list-presenter>
 
   <app-redux-heroes-edit-presenter *ngIf="selectedHero" class="col-md-3" [hero]="selectedHero" (onDeleted)="onDelete($event)"></app-redux-heroes-edit-presenter>
 

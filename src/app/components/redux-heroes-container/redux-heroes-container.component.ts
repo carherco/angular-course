@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { HEROES } from 'app/data/mock-heroes';
 import { Hero } from 'app/model/hero';
 import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
+import { LoadHeroes } from 'app/reducers/hero.actions';
 
 @Component({
   selector: 'app-redux-heroes-container',
@@ -11,7 +13,8 @@ import { Observable } from 'rxjs';
 })
 export class ReduxHeroesContainerComponent implements OnInit {
 
-  heroes$;
+  heroes$: Observable<any>;
+  heroes: Hero[] = [];
   lastId = 20;
   newHero: Hero;
   selectedHero: Hero;
@@ -24,7 +27,11 @@ export class ReduxHeroesContainerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.heroes$ = this.heroStateService.select$().subscribe(state => console.log(status));
+    this.heroes$ = this.heroStateService.select$().pipe(
+      map( state => state.items ),
+    );
+    this.heroes$.subscribe( x => this.heroes = x );
+    this.heroStateService.dispatch(new LoadHeroes(HEROES));
   }
 
   onSelect(hero: Hero): void {
