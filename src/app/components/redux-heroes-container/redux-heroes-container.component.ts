@@ -1,3 +1,4 @@
+import { AddHero, DeleteHero } from './../../reducers/hero.actions';
 import { HeroStateService } from './../../services/hero-state.service';
 import { Component, OnInit } from '@angular/core';
 import { HEROES } from 'app/data/mock-heroes';
@@ -5,6 +6,7 @@ import { Hero } from 'app/model/hero';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { LoadHeroes } from 'app/reducers/hero.actions';
+import { HeroState } from 'app/reducers/hero.store';
 
 @Component({
   selector: 'app-redux-heroes-container',
@@ -27,10 +29,12 @@ export class ReduxHeroesContainerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.heroes$ = this.heroStateService.select$().pipe(
-      map( state => state.items ),
-    );
-    this.heroes$.subscribe( x => this.heroes = x );
+    this.heroes$ = this.heroStateService.select$();
+    this.heroes$.subscribe( (state: HeroState) => {
+      this.heroes = state.items;
+      this.lastId = state.lastId;
+    });
+    
     this.heroStateService.dispatch(new LoadHeroes(HEROES));
   }
 
@@ -41,8 +45,9 @@ export class ReduxHeroesContainerComponent implements OnInit {
   add(newHero): void {
     //console.log(newHero);
     //this.heroes.push(newHero);
+    this.heroStateService.dispatch(new AddHero(newHero));
     //this.lastId = this.lastId +1;
-    //this.resetNewHero();
+    this.resetNewHero();
   }
 
   resetNewHero() {
@@ -54,10 +59,12 @@ export class ReduxHeroesContainerComponent implements OnInit {
 
   delete(hero: Hero) {
     //this.heroes = this.heroes.filter(function(el) { return el.id != hero.id; }); 
+    this.heroStateService.dispatch(new DeleteHero(hero));
   }
 
   onDelete(hero: Hero) {
     //console.log('List component wants to delete the item ' + hero.id);
     //this.heroes = this.heroes.filter(function(el) { return el.id != hero.id; }); 
+    this.heroStateService.dispatch(new DeleteHero(hero));
   }
 }
