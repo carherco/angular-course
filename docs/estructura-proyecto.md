@@ -1,44 +1,45 @@
-# Estructura de un proyecto Angular 6
+# File structure of an Angular 6 project
 
-# Directorio raíz
+## Root directory
 
-El directorio raíz de un proyecto angular contiene los siguientes elementos:
+The root directory of an angular project contains the following elements:
 
 ![Imagen de la estructura de un proyecto](img/estructura.png "Estructura de un proyecto angular")
 
 * **e2e/:** end-to-end tests
-* **node_modules/:** módulos de terceros listados en package.json.
-* **src/:** Directorio donde reside la aplicación
-* **.editorconfig:** Configuración para el editor (para intentar que todo el equipo de desarrollo utilice la misma configuración). (http://editorconfig.org)
-* **.gitignore:** archivos a ignorar por Git
-* **angular.json:** Fichero de configuración de angular.
-* **package.json:** Lista de paquetes de terceros que usa el proyecto.
-* **README.md:** Pre-relleno con información sobre comandos de angular.
-* **tsconfig.json:** Configuración para TypeScript para el IDE
-* **tslint.json:** Configuración para TSLint
+* **node_modules/:** Npm packages.
+* **src/:** Directory where the app is
+* **.editorconfig:** Configuration for code editors.  (http://editorconfig.org)
+* **.gitignore:** Specifies intentionally untracked files that Git should ignore.
+* **angular.json:** CLI configuration for all projects in the workspace, including configuration options for build, serve, and test tools that the CLI uses, such as Karma and Protractor.
+* **package.json:** Configuration of npm package dependencies
+* **README.md:** Introductory documentation.
+* **tsconfig-app.json:** Default TypeScript configuration for apps in the workspace.
+* **tsconfig-spec.json:** Default TypeScript configuration for e2e test apps in the workspace.
+* **tslint.json:** Default TSLint configuration for apps in the workspace.
 
-El directorio src/ tiene la estructura siguiente:
+## src directory
+
+The src/ directory contains the following elements:
 
 ![Imagen de la estructura del directorio src](img/estructura-src.png "Estructura del directorio src")
 
-* **app/app.component.{ts,html,css,spec.ts}:** El componente raíz de la aplicación (archivo typescript, archivo html, archivo css y archivo spec.ts para test).
-* **app/app.module.ts:** Define el módulo AppModule, (el módulo raíz) que le dice a angular cómo ensamblar la aplicación.
-* **assets/:** Directorio para los assets (se copiará tal cual al construir la aplicación).
-* **environments/:** Este directorio contiene un archivo por cada entorno. En el se encuentra la configuración de algunas variables que se utilizan en la aplicación. Por ejemplo, quizás utilices una API REST diferente durante el desarrollo que la que utilizarás en producción, diferentes tokens de analytics, servicios mock... Angular cli elige el fichero adecuado en cada caso.
-* **browserslist:** Fichero de configuración para indicar a las distintas herramientas los **target browsers**.
-* **favicon.ico:** El icono favicon.
-* **index.html:** El html principal.
-* **karma.conf.js:** Configuración de Karma (para tests unitarios)
-* **main.ts:** El punto de entrada principal de la aplicación.
-* **polyfills.ts:**
-Cada navegador tiene diferente grado de soporte de los estándares web. Polyfills es una librería javascipt que normaliza esas diferencias. [Browser Support Guide](https://angular.io/guide/browser-support).
-* **styles.css:** Estilos css globales de la aplicación.
-* **test.ts:** Punto de entrada principal a los tests unitarios.
-* **tsconfig.app.json:** Configuración del compilador TypeScript para la aplicación angular.
-* **tsconfig.spec.json:** Configuración del compilador TypeScript para los tests unitarios(tsconfig.spec.json).
-* **tslint.json:** Configuración para el TSLint y Codelyzer, utilizados al ejecutar el comando ng lint.
+* **app/app.component.{ts,html,css,spec.ts}:** The root component (typescript file, html file, css file and spec.ts file).
+* **app/app.module.ts:** The root module
+* **assets/:** Directory for the assets (it will be copied as such when building the application).
+* **environments/:** This directory contains one file for each environment. In it is the configuration of some variables that are used in the application. For example, maybe you use a different REST API during the development that you will use in production, different analytics tokens, mock services ... Angular cli chooses the appropriate file in each case.
+* **browserslist:** Configures sharing of **target browsers** and Node.js versions among various front-end tools.
+* **favicon.ico:** The favicon icon.
+* **index.html:** The root html.
+* **karma.conf.js:** Karma configuration (for unit tests)
+* **main.ts:** The entry point of the application.
+* **polyfills.ts:** A polyfill to support old browsers.
+* **styles.css:** Global CSS styles of the application.
+* **test.ts:** Main entry point to the unit tests.
+* **tsconfig.app.json:** Inherits from the workspace-wide tsconfig.json file.
+* **tsconfig.spec.json:** Inherits from the workspace-wide tsconfig.json file.
+* **tslint.json:** Inherits from the workspace-wide tslint.json file.
 
-
-Nota: Las dos imágenes de esta sección son capturas de pantalla de la documentación oficial de Angular.
+Note: The two images in this section are screenshots of the official Angular documentation.
 
 [Índice](index.md)

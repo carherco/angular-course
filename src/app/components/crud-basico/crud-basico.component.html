@@ -1,17 +1,17 @@
 <h2>{{title}}</h2>
 
-<h3>Añade un héroe a la lista</h3>
+<h3>Add a hero to the list</h3>
 <form class="form-inline">
   <div class="form-group">
-    <label for="nombre">Nombre:</label>
-    <input type="text" class="form-control" id="nombre" name="name" [(ngModel)]="newHero.name" placeholder="Escribe el nombre...">
+    <label for="nombre">Name:</label>
+    <input type="text" class="form-control" id="nombre" name="name" [(ngModel)]="newHero.name" placeholder="Write the name...">
   </div>
   <div class="form-group">
     <select [(ngModel)]="newHero.emotion" name="emotion">
     <option *ngFor="let emotion of emotions" [value]="emotion">{{emotion}}</option>
   </select>
   </div>
-  <button type="button" class="btn btn-primary" (click)="add()">Añadir</button>
+  <button type="button" class="btn btn-primary" (click)="add()">Add</button>
 </form>
 
 
@@ -20,12 +20,12 @@
 
   <div class="col-md-6">
     <h3>Lista de héroes</h3>
-    <input type="checkbox" [(ngModel)]="hide_sad"> Ocultar héroes tristes
+    <input type="checkbox" [(ngModel)]="hide_sad"> Hide sad heroes
     <table class="table table-striped">
       <tr>
         <th>Id</th>
-        <th>Nombre</th>
-        <th>Estado de ánimo</th>
+        <th>Name</th>
+        <th>Emotion</th>
         <th></th>
       </tr>
       <ng-container *ngFor="let hero of heroes; let index=index; let odd=odd;">
@@ -47,10 +47,10 @@
 
 
   <div *ngIf="selectedHero" class="col-md-6">
-    <h3>Datos del héroe {{selectedHero.name}}</h3>
+    <h3>Data of hero {{selectedHero.name}}</h3>
     <div><label>Id: </label>{{selectedHero.id}}</div>
     <div>
-      <label>Nombre: </label>
+      <label>Name: </label>
       <input [(ngModel)]="selectedHero.name" placeholder="name"/>
     </div>
     <div>

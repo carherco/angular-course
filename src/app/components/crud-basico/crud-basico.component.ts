@@ -9,7 +9,7 @@ import { Hero } from '../../model/hero';
 })
 export class CrudBasicoComponent implements OnInit {
 
-  title = 'CRUD BÁSICO';
+  title = 'BASIC CRUD';
   heroes = HEROES;
   emotions = ['','happy','sad','confused'];
   lastId = 20;

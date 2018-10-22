@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject, Observable } from 'rxjs';
+import { Subject, Observable, BehaviorSubject } from 'rxjs';
 import { HeroAction, HeroActions } from 'app/reducers/hero.actions';
 import { reducer, initialHeroState } from 'app/reducers/hero.reducer';
 import { HeroState } from '../reducers/hero.store';
@@ -11,6 +11,7 @@ export class HeroStateService {
   
     private state: HeroState = initialHeroState;
     private state$ = new Subject<any>();
+    //private state$ = new BehaviorSubject<any>([]);
     
     constructor() {}
 

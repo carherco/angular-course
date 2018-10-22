@@ -44,11 +44,6 @@ const appRoutes: Routes = [
       { path: 'hero/:id',      component: ChildCompComponent },
       { path: 'container-presenter', component: HeroesContainerComponent },
       { path: 'redux', component: ReduxHeroesContainerComponent },
-      {
-        path: 'heroes',
-        component: ParentCompComponent,
-        data: { title: 'Heroes List' }
-      },
       { path: 'login', component: LoginComponent },
       { path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule'},
       { path: 'fractal', loadChildren: 'app/fractal/fractal.module#FractalModule'},

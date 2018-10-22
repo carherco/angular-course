@@ -1,5 +1,6 @@
 # Índice del curso
 
+- [File structure](estructura-proyecto.md)
 - [Data binding](data-binding.md)
 - [Directives](directives.md)
 - [Pipes](pipes.md)
@@ -12,8 +13,8 @@
 - [Formularios model-driven](forms-model-driven.md)
 - [Component Lifecycle](lifecycle.md)
 - [Lazy Loading](lazy-loading.md)
-- Módulos (Módulo global para la aplicación)
-- Estructura de un proyecto angular (Explicación template Metronic)
+- Módules
+- Metronic template
 - [Change detection](deteccion-cambios.md)
 - [Dynamic Component Loading](dynamic-components.md)
 - [Introduction to Redux pattern](redux.md)

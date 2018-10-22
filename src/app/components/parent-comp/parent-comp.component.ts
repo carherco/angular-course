@@ -8,7 +8,7 @@ import { Hero } from '../../model/hero';
   styleUrls: ['./parent-comp.component.css']
 })
 export class ParentCompComponent implements OnInit {
-  title = 'Paso de datos entre componentes';
+  title = 'Data binding between components';
   heroes = HEROES;
   lastId = 20;
   newHero: Hero;
