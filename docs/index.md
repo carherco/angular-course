@@ -20,10 +20,7 @@
 - [Introduction to Redux pattern](redux.md)
 - [Introduction to Ionic]
 - [Introduction to PWA]
-- Reusable forms (Creación de formularios reutilizables (consejos y buenas prácticas)
-
-
-
+- Reusable forms
 
 
 

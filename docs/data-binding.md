@@ -2,9 +2,7 @@
 
 The component "communicates" with its template through what is called **data-binding**.
 
-
-
-Desde la plantilla se puede acceder a cualquier propiedad pública del componente. (Recordemos que por defecto las propiedades de una clase son públicas)
+From the template you can access any public property of the component. (Remember that by default, properties of a class are public)
 
 ## One way data binding (from component to template)
 
