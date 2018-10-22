@@ -23,6 +23,7 @@ import { PipesComponent } from './components/pipes/pipes.component';
 import { ColdObservablesComponent } from './components/cold-observables/cold-observables.component';
 import { RotateComponent } from './components/rotate/rotate.component';
 import { CronoComponent } from './components/crono/crono.component';
+import { ReduxHeroesContainerComponent } from './components/redux-heroes-container/redux-heroes-container.component';
 
 
 const appRoutes: Routes = [
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
       { path: 'search', component: HeroSearchComponent },
       { path: 'hero/:id',      component: ChildCompComponent },
       { path: 'container-presenter', component: HeroesContainerComponent },
+      { path: 'redux', component: ReduxHeroesContainerComponent },
       {
         path: 'heroes',
         component: ParentCompComponent,

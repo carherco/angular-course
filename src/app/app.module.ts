@@ -49,6 +49,10 @@ import { HeroesContainerComponent } from './components/heroes-container/heroes-c
 import { HeroesListPresenterComponent } from './components/heroes-list-presenter/heroes-list-presenter.component';
 import { HeroesAddPresenterComponent } from './components/heroes-add-presenter/heroes-add-presenter.component';
 import { HeroesEditPresenterComponent } from './components/heroes-edit-presenter/heroes-edit-presenter.component';
+import { ReduxHeroesContainerComponent } from './components/redux-heroes-container/redux-heroes-container.component';
+import { ReduxHeroesEditPresenterComponent } from './components/redux-heroes-edit-presenter/redux-heroes-edit-presenter.component';
+import { ReduxHeroesListPresenterComponent } from './components/redux-heroes-list-presenter/redux-heroes-list-presenter.component';
+import { ReduxHeroesAddPresenterComponent } from './components/redux-heroes-add-presenter/redux-heroes-add-presenter.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +83,11 @@ import { HeroesEditPresenterComponent } from './components/heroes-edit-presenter
     HeroesContainerComponent,
     HeroesListPresenterComponent,
     HeroesAddPresenterComponent,
-    HeroesEditPresenterComponent
+    HeroesEditPresenterComponent,
+    ReduxHeroesContainerComponent,
+    ReduxHeroesEditPresenterComponent,
+    ReduxHeroesListPresenterComponent,
+    ReduxHeroesAddPresenterComponent
   ],
   imports: [
     BrowserModule,
