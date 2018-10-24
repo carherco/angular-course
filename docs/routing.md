@@ -346,11 +346,9 @@ ngOnInit() {
 }
 ```
 
-
-
 ## Outlets
 
-```
+```html
 <router-outlet></router-outlet>
 <router-outlet name='left'></router-outlet>
 <router-outlet name='right'></router-outlet>
@@ -363,7 +361,9 @@ ngOnInit() {
     <router-outlet name="bio"></router-outlet>
   </md-card>
 </div>
+```
 
+```ts
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -372,18 +372,18 @@ const routes: Routes = [
     { path: ':id', component: BioComponent, outlet: 'bio' }
   ] }
 ];
+```
 
-
+```html
 <button md-button
   [routerLink]="['/speakers', {outlets: {'list': ['speakersList'], 'bio': ['none']}}]">
   Speakers
 </button>
-
+<!-- `/speakers(list:speakersList//bio:/none)` -->
 
 <router-outlet
   (activate)='onActivate($event)'
   (deactivate)='onDeactivate($event)'></router-outlet>
-
 ```
 
 [Índice](index.md)

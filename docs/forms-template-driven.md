@@ -1,31 +1,31 @@
-# Formularios Template-driven 
+# Template-driven forms
 
-Es posible construir casi cualquier formulario con plantillas de Angular. Se pueden colocar los elementos con libertad y creatividad, hacer binding de los controles con los datos, especificar reglas de validación y mostrar errores de validación, habilitar y deshabilitar controles según condiciones...
+It is possible to build almost any form with Angular templates. You can place the elements with freedom and creativity, bind the controls with the data, specify validation rules and show validation errors, enable and disable controls according to conditions ...
 
-Vamos a utilizar las potencia de los formularios de Angular al siguiente ejemplo: 
+We are going to use the power of the Angular forms to the following example:
 
 ```html
-  <div class="container">
+  <div>
       <h1>Hero Form</h1>
       <form>
-        <div class="form-group">
+        <div>
           <label for="name">Name</label>
-          <input type="text" class="form-control" id="name" required>
+          <input type="text" id="name" name="name" required>
         </div>
   
-        <div class="form-group">
+        <div>
           <label for="alterEgo">Alter Ego</label>
-          <input type="text" class="form-control" id="alterEgo">
+          <input type="text" id="alterEgo" name="alterEgo">
         </div>
 
-        <div class="form-group">
+        <div>
           <label for="power">Hero Power</label>
-          <select class="form-control" id="power"  name="power" required>
+          <select id="power"  name="power" required>
             <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
           </select>
         </div>
   
-        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="submit">Submit</button>
   
       </form>
   </div>
@@ -48,8 +48,7 @@ Vamos a utilizar las potencia de los formularios de Angular al siguiente ejemplo
   }
 ```
 
-
-Existe un módulo en el *@angular/forms* llamado *FormsModule* que nos da acceso a los tipos *ngForm* y *ngModel* para tipar variables y a la directiva *ngModel* que ya hemos utilizado alguna vez para realizar el doble binding.
+There is a module in the *@angular/forms* called *FormsModule* that gives us access to the types *ngForm* and *ngModel* to type variables and the *ngModel* directive that we have already used to do two-way binding. From Angular 5 we also have the *ngModelOptions* directive.
 
 ```typescript
   imports: [
@@ -59,70 +58,61 @@ Existe un módulo en el *@angular/forms* llamado *FormsModule* que nos da acceso
   ],
 ```
 
+## Two-way data binding with ngModel
 
-## Two way data binding con ngModel
+We do not see the hero's data in the form because we have not yet made a binding with the hero.
 
-No vemos los datos del héroe en el formulario porque no hemos hecho binding todavía con el héroe.
+We use *ngModel* to associate each control of the form with a property of the hero. Remember that in order to use *ngModel* it is necessary to declare the *name* attribute.
 
-Utilizamos *ngModel* para asociar cada control del formulario a una propiedad del héroe. Recordemos que para utilizar *ngModel* es necesario declarar el atributo *name*.
-
-También utilizaremos un *chivato* (diagnostic) para comprobar que efectivamente se realiza el binding.
-
+We will also use a kind of spy to verify that the binding is actually done.
 
 ```html
   <div class="container">
       <h1>Hero Form</h1>
       <form>
-        {{diagnostic() | json}}
-        <div class="form-group">
+        {{hero | json}}
+        <div>
           <label for="name">Name</label>
-          <input type="text" class="form-control" id="name" required [(ngModel)]="hero.name" name="name">
+          <input type="text" id="name" required [(ngModel)]="hero.name" name="name">
         </div>
 
-        <div class="form-group">
+        <div>
           <label for="alterEgo">Alter Ego</label>
-          <input type="text" class="form-control" id="alterEgo" [(ngModel)]="hero.alterEgo" name="alterEgo">
+          <input type="text" id="alterEgo" [(ngModel)]="hero.alterEgo" name="alterEgo">
         </div>
 
-        <div class="form-group">
+        <div>
           <label for="power">Hero Power</label>
-          <select class="form-control" id="power"  name="power" required [(ngModel)]="hero.power" name="power">
+          <select id="power"  name="power" required [(ngModel)]="hero.power" name="power">
             <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
           </select>
         </div>
 
-        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="submit">Submit</button>
 
       </form>
   </div>
 ```
 
-```typescript
-  // TODO: Eliminar esta función al terminar
-  get diagnostic() { 
-    return JSON.stringify(this.hero);
-  }
-```
+## Visually mark the status of the controls
 
-## Marcar visualmente el estado de los controles 
+Using ngModel in a form provides much more than just two-way data binding. It also informs if the user has touched the control, if the value has changed or if the value is valid or not.
 
-Utilizar ngModel en un formulario proporciona mucho más que tan solo two-way data binding. También informa de si el usuario ha tocado el control, si el valor ha cambiado o si el valor es válido o no.
-
-La directiva ngModel actualiza el control con clases CSS especiales de Angular que reflejan el estado del control. Esas clases se pueden utilizar para cambiar la apariencia del control.
+The ngModel directive updates the control with Angular special CSS classes that reflect the status of the control. Those classes can be used to change the appearance of the control.
 
 ![Clases ngModel](img/ngModel_clases.png "Clases ngModel")
 
-Vamos a añadir una template reference variable llamada spy al input del nombre para ver las clases css asociadas en cada momento.
+We are going to add a template variable called spy to the *name* input to see the associated css classes at each moment.
 
 ```html
   <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" required [(ngModel)]="hero.name" name="name" #spy>
+    <input type="text" id="name" required [(ngModel)]="hero.name" name="name" #spy>
     <br>{{spy.className}}
   </div>
 ```
 
-Gracias a estas clases podemos marcar visualmente mediante css el estado de los controles.
+Thanks to these classes we can visually mark the state of the controls with css.
 
 ```css
   .ng-valid[required], .ng-valid.required  {
@@ -134,54 +124,51 @@ Gracias a estas clases podemos marcar visualmente mediante css el estado de los 
   }
 ```
 
-## Mostrar y ocultar mensajes de errores de validación
+## Show and hide validation error messages
 
-Vamos a poner otro template reference variable al control del nombre pero tipándolo al tipo ngModel
+We are going to put another template reference variable to the *name* control but typing it to the type ngModel.
 
 ```html
   <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" required [(ngModel)]="hero.name" name="name" #spy #name="ngModel">
+    <input type="text" id="name" required [(ngModel)]="hero.name" name="name" #spy #name="ngModel">
     <br>{{spy.className}}
   </div>
 ```
 
-También añadiremos un mensaje de error, que aparecera cuando el nombre esté vacío.
+We will also add an error message, which will appear when the name is empty.
 
 ```html
   <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" required [(ngModel)]="hero.name" name="name" #spy #name="ngModel">
+    <input type="text" id="name" required [(ngModel)]="hero.name" name="name" #spy #name="ngModel">
     <br>{{spy.className}}
   </div>
-  <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+  <div [hidden]="name.valid || name.pristine">
     Name is required
   </div>
 ```
 
-
-## Hacer submit del formulario con el evento onSubmit
+## Submit the form with ngSubmit event
 
 ```html
   <form (ngSubmit)="onSubmit()">
   ...
-  <button type="submit" class="btn btn-success">Añadir</button>
+  <button type="submit">Submit</button>
 ```
 
 ```typescript
   onSubmit() {
-    //Hacer lo que sea
-    //Luego limpiar el formulario
+    //Do whatever
+    //...
+    //and then clean the form:
     this.hero.name = '';
     this.hero.power = this.powers[0];
     this.hero.alterEgo = '';
   }
 ```
 
-
-
-
-## Desactivar el botón de submit hasta que el formulario sea válido
+## Disable the submit button until the form is valid
 
 Vamos a poner otro template reference variable al formulario, ahora de tipo ngForm
 
@@ -197,13 +184,13 @@ Así pues, podemos desactivar el botón de submit y no activarlo hasta que el fo
 ```html
   <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
   ...
-  <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Añadir</button>
+  <button type="submit" [disabled]="!heroForm.form.valid">Añadir</button>
 ```
 
 
-## Limpiar el formulario
+## Reset the form
 
-El objeto ngForm tiene también un método *reset()* que limpia completamente el formulario.
+The ngForm object also has a *reset()* method that completely cleans the form.
 
 ```html
   <form (ngSubmit)="onSubmit(); heroForm.reset()" #heroForm="ngForm">
@@ -213,58 +200,36 @@ De esta forma, el componente no necesita ocuparse de esa tarea
 
 ```typescript
   onSubmit() {
-    //Hacer lo que sea
+    //Do whatever
+    //...
   }
 ```
 
-
-## Mostrar mensaje cuando se envíe el formulario
-
-Ya no fomra parte de los formularios, pero es muy típico mostrar un mensaje al enviar el formulario.
+## Show a message when the form is submitted
 
 ```html
-<div [hidden]="!submitted">
-  <h2>¡Gracias!</h2>
+<div [hidden]="!heroForm.submitted">
+  <h2>Thank you!</h2>
 </div>
 ```
 
-```typescript
-export class HeroFormComponent implements OnInit {
+## ngModelOptions directive
 
-  powers = ['Really Smart', 'Super Flexible',
-            'Super Hot', 'Weather Changer'];
+### updateOn
 
-  hero = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Overstreet');
-
-  submitted = false;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  onSubmit() {
-    //Hacer lo que sea
-    this.submitted = true;
-  }
-}
-```
-
-Se podría haber hecho con la propiedad .submitted de ngForm
-
-
-## updateOn
+Forms default behabiour is to update in every keypress. But we can change that behaviour with the **updateOn** option.
 
 ```html
   <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" required [(ngModel)]="hero.name" name="name" #name="ngModel" [ngModelOptions]="{updateOn: 'blur'}">
+    <input type="text" id="name" required [(ngModel)]="hero.name" name="name" #name="ngModel" [ngModelOptions]="{updateOn: 'blur'}">
   </div>
 ```
+
+And we can do the same for the whole form
 
 ```html
 <form [ngModelOptions]="{updateOn: 'submit'}">
 ```
-
 
 [Índice](index.md)

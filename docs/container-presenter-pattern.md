@@ -9,7 +9,7 @@ For example, the template of the  basic-crud component is like this
 ```html
 <h2>Heroes manager</h2>
 
-<h3>Añade un héroe a la lista</h3>
+<h3>Add a hero to the list</h3>
 <form class="form-inline">
   <div class="form-group">
     <label for="nombre">Nombre:</label>
@@ -20,14 +20,14 @@ For example, the template of the  basic-crud component is like this
     <option *ngFor="let emotion of emotions" [value]="emotion">{{emotion}}</option>
   </select>
   </div>
-  <button type="button" class="btn btn-primary" (click)="add()">Añadir</button>
+  <button type="button" class="btn btn-primary" (click)="add()">Add</button>
 </form>
 
 <div class="row">
 
   <div class="col-md-6">
     <h3>Lista de héroes</h3>
-    <input type="checkbox" [(ngModel)]="hide_sad"> Ocultar héroes tristes
+    <input type="checkbox" [(ngModel)]="hide_sad"> Hide sad heroes
     <table class="table table-striped">
       <tr>
         <th>Id</th>
@@ -175,7 +175,7 @@ Presenter components know how to present data in the screen. Let's take a look f
 <button class="btn btn-danger" (click)="delete()">Delete</button>
 ```
 
-However, this component does not know how to get de hero to be presented nor how to delete it from the list of heroes. In fact, if we take a look to the typescript, we can see that it has almost any logic inside.
+However, this component does not know how to get de hero to be presented nor how to delete it from the list of heroes. In fact, if we take a look to the typescript, we can see that it has almost no logic inside.
 
 ```ts
 @Component({

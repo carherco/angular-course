@@ -17,7 +17,9 @@ export class RotateDirective {
     this.el.nativeElement.style.transform = `rotate(${this.angle}deg)`;
   }
 
-  @HostListener("click", ['$event']) girar(event: MouseEvent) {
+  @HostListener("click", ['$event']) 
+  rotate(event: MouseEvent) {
+    console.log(event);
     if(event.shiftKey) {
       this.angle = this.angle - this.step;
     } else {

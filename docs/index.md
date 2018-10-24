@@ -4,23 +4,24 @@
 - [Data binding](data-binding.md)
 - [Directives](directives.md)
 - [Pipes](pipes.md)
-- Example: Foto Gallery
+- Exercise: Foto Gallery
 - [Exercise: simple CRUD](ejemplo-crud-basico.md)
 - [Dependency injection](inyeccion-dependencias.md)
 - [Data binding between components](input-binding.md)
 - [Template Reference Variables](template-reference-variables.md)
 - [Observables (rxjs)](observables.md)
-- [Formularios model-driven](forms-model-driven.md)
+- [Template-driven forms](forms-model-driven.md)
+- [Model-driven forms (reactive forms)](forms-model-driven.md)
 - [Component Lifecycle](lifecycle.md)
 - [Lazy Loading](lazy-loading.md)
-- Módules
-- Metronic template
 - [Change detection](deteccion-cambios.md)
 - [Dynamic Component Loading](dynamic-components.md)
 - [Introduction to Redux pattern](redux.md)
 - [Introduction to Ionic]
 - [Introduction to PWA]
+- Metronic template
 - Reusable forms
+- Passing data while navigation: https://stackoverflow.com/questions/44864303/send-data-through-routing-paths-in-angular
 
 
 

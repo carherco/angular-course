@@ -138,7 +138,7 @@ Angular uses observables of the RxJs library for the treatment of several asynch
 
 The `RxJS` library offers several ways to create observables:
 
-Form a data value with `of`:
+From a data value with `of`:
 
 ```javascript
 import { of } from "rxjs";

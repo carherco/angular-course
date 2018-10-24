@@ -16,9 +16,9 @@ Angular waits for the programmer to tell him he has to detect changes.
 
 Exceptions:
 
- - A change in a REFERENCE @Input. (change in the reference, not in the value, since angular will consider that the objects are immutable)
- - An event of the DOM or associated with an @Output
- - An observable issue a new value
+- A change in a REFERENCE @Input. (change in the reference, not in the value, since angular will consider that the objects are immutable)
+- An event of the DOM or associated with an @Output
+- An observable issue a new value
 
 According to comments Victor Savkin (Angular's core contributor) in his blog:
 
@@ -34,7 +34,7 @@ The detection of the manual change is launched:
 Note: The Async pipe:
 
 - It unsubscribes when the component is destroyed
-- Automatically call ChangeDetectorRef.detectChanges()
+- Automatically calls ChangeDetectorRef.detectChanges()
 
 Implications:
 
@@ -76,7 +76,7 @@ target = {...original, name: 'xxxx', age: 7}
 
 This simple cloning method does not handle deleting properties or cloning methods.
 
-### Clonados complejos
+### Complex cloning
 
 For more complex clones, we should use specialized libraries that perform efficient clones (for example: Immutablejs).
 

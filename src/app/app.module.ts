@@ -53,6 +53,7 @@ import { ReduxHeroesContainerComponent } from './components/redux-heroes-contain
 import { ReduxHeroesEditPresenterComponent } from './components/redux-heroes-edit-presenter/redux-heroes-edit-presenter.component';
 import { ReduxHeroesListPresenterComponent } from './components/redux-heroes-list-presenter/redux-heroes-list-presenter.component';
 import { ReduxHeroesAddPresenterComponent } from './components/redux-heroes-add-presenter/redux-heroes-add-presenter.component';
+import { ExponentialPipe } from './pipes/exponential.pipe';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,8 @@ import { ReduxHeroesAddPresenterComponent } from './components/redux-heroes-add-
     ReduxHeroesContainerComponent,
     ReduxHeroesEditPresenterComponent,
     ReduxHeroesListPresenterComponent,
-    ReduxHeroesAddPresenterComponent
+    ReduxHeroesAddPresenterComponent,
+    ExponentialPipe
   ],
   imports: [
     BrowserModule,
