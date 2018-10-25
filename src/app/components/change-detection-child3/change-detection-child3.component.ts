@@ -4,7 +4,7 @@ import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core
   selector: 'app-change-detection-child3',
   templateUrl: './change-detection-child3.component.html',
   styleUrls: ['./change-detection-child3.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  //changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChangeDetectionChild3Component implements OnInit {
 
