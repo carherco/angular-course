@@ -62,7 +62,7 @@ subject.next(3);
 // observerB: 3
 ```
 
-## ReplaySubject
+## ReplaySubject
 
 Same as Subject but ReplaySubject will replay the last event emitted if you subscribe late to the ReplaySubject.
 
