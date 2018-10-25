@@ -19,6 +19,7 @@
 - [Lazy Loading](lazy-loading.md)
 - [Change detection](deteccion-cambios.md)
 - [Dynamic Component Loading](dynamic-components.md)
+- [Container-Presenter pattern](container-presenter-pattern.md)
 - [Introduction to Redux pattern](redux.md)
 - [Introduction to Ionic](https://ionicframework.com/)
 - [Introduction to PWA](https://github.com/carherco/curso-awp)
