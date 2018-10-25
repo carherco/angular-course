@@ -37,7 +37,7 @@ Callback for toggling "touched" property
 
 Enable/disable element in view.
 
-## FormControlDirective
+## FormControlDirective
 
 All form directives, call setUpControl function to setup interaction between a formControl and a ControlValueAccessor. Here is the code snippet demonstrating that for the formControl directive:
 
@@ -92,7 +92,7 @@ export class RequiredTextComponent implements ControlValueAccessor {
 }
 ```
 
-## registerOnChange()
+## registerOnChange()
 
 Set the function to be called when the control receives a change event. Angular provides you with a function and asks you to call it whenever there is a change in your component with the new value so that it can update the control.
 
@@ -226,7 +226,7 @@ export class RequiredText {
 }
 ```
 
-## NgControl
+## NgControl
 
 It's the super class for all bottom-level individual FormControlDirective, NgModel and FormControlName.
 
