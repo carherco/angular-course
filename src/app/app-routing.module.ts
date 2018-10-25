@@ -1,3 +1,4 @@
+import { ChangeDetectionParentComponent } from './components/change-detection-parent/change-detection-parent.component';
 import { HeroesContainerComponent } from './components/heroes-container/heroes-container.component';
 import { CrudBasicoComponent } from './components/crud-basico/crud-basico.component';
 import { CalculadoraComponent } from './components/calculadora/calculadora.component';
@@ -54,6 +55,7 @@ const appRoutes: Routes = [
      // { path: 'lazy3', loadChildren: 'app/lazy3/lazy3.module#Lazy3Module', data: {preload: true}},
       { path: 'lazy4', loadChildren: 'app/lazy4/lazy4.module#Lazy4Module'},
       { path: 'lazy5', loadChildren: 'app/lazy5/lazy5.module#Lazy5Module'},
+      { path: 'cdr', component: ChangeDetectionParentComponent },
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: '**', redirectTo: '' }
     ];

@@ -49,7 +49,7 @@ export class FormControlDirective ... {
       setUpControl(this.form, this);
 ```
 
-And here is the gist of the setUpControl function that shows how the native and Angular’s form controls are synchronized:
+And here is the code of the setUpControl function that shows how the native and Angular’s form controls are synchronized:
 
 ```ts
 export function setUpControl(control: FormControl, dir: NgControl) {
@@ -76,7 +76,7 @@ Once we understand the mechanics we can continue implementing our own accessor f
 
 Write a new value to the element. Angular will call this method with the value in one of the following cases:
 
-- When you instantiate a new FormControl .
+- When you instantiate a new FormControl.
 - When you call this.control.patchValue/setValue(value)
 
 ```html
@@ -110,7 +110,7 @@ registerOnChange(fn: (value: any) => void) {
 
 ## registerOnTouched()
 
-The registerOnTouched method is the same as registerOnChange except that you should call her when the control receives a touch event.
+The registerOnTouched method is the same as registerOnChange except that you should call it when the control receives a touch event.
 
 ```html
 <input type="text" #input 
@@ -134,7 +134,6 @@ Angular will call this method in one of the following cases:
 - When you instantiate a new FormControl with the disabled property set to true. FormControl({value: '', disabled: true})
 - When you call control.disable() or when you call control.enable() after your already called control.disable() at least once.
 
-
 ```html
 <input type="text" #input 
   (input)="onChange($event.target.value)"
@@ -157,12 +156,35 @@ setDisabledState(disabled: boolean) {
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: RequiredText
-      //useExisting: forwardRef(() => RequiredText),
+      useExisting: RequiredTextComponent
+      //useExisting: forwardRef(() => RequiredTextComponent),
     }
   ],
   ...
 })
+export class RequiredTextComponent implements ControlValueAccessor {
+  //...
+}
+```
+
+or
+
+```ts
+const REQUIRED_TEXT_ACCESSOR = {
+  provide: NG_VALUE_ACCESSOR,
+  multi: true,
+  useExisting: forwardRef(() => RequiredTextComponent),
+}
+@Component({
+  ...
+  providers: [
+    REQUIRED_TEXT_ACCESSOR
+  ],
+  ...
+})
+export class RequiredTextComponent implements ControlValueAccessor {
+  //...
+}
 ```
 
 We need to use *forwardRef* because in ES6 classes are not hoisted to the top, so at this point (inside the metadata definition), the class is not yet defined.
@@ -181,21 +203,15 @@ multi: true indicates that several elements of NG_VALUE_ACCESSOR can be bound to
 
 ## Validator interface
 
+The validator interfaces requires to implement the validate() method.
+
 ```ts
 validate(ctrl: AbstractControl) {
   return Validator.required(ctrl);
 }
 ```
 
-```ts
-providers: [
-  {
-    provide: NG_VALIDATORS,
-    multi: true,
-    useExisting: RequiredText
-  }
-]
-```
+And provide it
 
 ```ts
 @Component({

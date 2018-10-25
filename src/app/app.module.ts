@@ -54,6 +54,13 @@ import { ReduxHeroesEditPresenterComponent } from './components/redux-heroes-edi
 import { ReduxHeroesListPresenterComponent } from './components/redux-heroes-list-presenter/redux-heroes-list-presenter.component';
 import { ReduxHeroesAddPresenterComponent } from './components/redux-heroes-add-presenter/redux-heroes-add-presenter.component';
 import { ExponentialPipe } from './pipes/exponential.pipe';
+import { ChangeDetectionParentComponent } from './components/change-detection-parent/change-detection-parent.component';
+import { ChangeDetectionChild1Component } from './components/change-detection-child1/change-detection-child1.component';
+import { ChangeDetectionChild2Component } from './components/change-detection-child2/change-detection-child2.component';
+import { ChangeDetectionChild3Component } from './components/change-detection-child3/change-detection-child3.component';
+import { CustomControlComponent } from './components/custom-control/custom-control.component';
+import { RequiredTextComponent } from './controls/required-text/required-text.component';
+import { CustomValidator } from './validators/custom-validator/custom-validator.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +96,14 @@ import { ExponentialPipe } from './pipes/exponential.pipe';
     ReduxHeroesEditPresenterComponent,
     ReduxHeroesListPresenterComponent,
     ReduxHeroesAddPresenterComponent,
-    ExponentialPipe
+    ExponentialPipe,
+    ChangeDetectionParentComponent,
+    ChangeDetectionChild1Component,
+    ChangeDetectionChild2Component,
+    ChangeDetectionChild3Component,
+    CustomControlComponent,
+    RequiredTextComponent,
+    CustomValidator
   ],
   imports: [
     BrowserModule,

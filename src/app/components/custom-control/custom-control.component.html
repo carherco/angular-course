@@ -1,0 +1,6 @@
+<form #form="ngForm">
+  <input type="text" name="one" ngModel />
+  <select name="two" name="two" ngModel></select>
+  <app-required-text name="three" ngModel></app-required-text>
+</form>
+{{form.status}}
